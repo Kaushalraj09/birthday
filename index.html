@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Happy Birthday Rajput Supriya Kumari Brijesh Singh! 🎂💖</title>
 
     <style>
@@ -16,53 +17,49 @@
         }
 
         * {
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, var(--light-pink), var(--purple));
-            overflow-x: hidden;
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
             color: var(--dark-text);
+            overflow-x: hidden;
         }
 
         .container {
             position: relative;
             width: 100%;
-            min-height: 100vh;
+            max-width: 900px;
+            background: rgba(255 255 255 / 0.1);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px 20px;
+            overflow: visible;
         }
 
-        /* PAGE STYLE */
         .page {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            display: none;
             text-align: center;
-            padding: 20px;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: 0.8s ease;
+            min-height: 60vh;
+            padding: 20px 10px;
+            border-radius: 20px;
         }
 
         .page.active {
-            opacity: 1;
-            transform: translateX(0);
+            display: block;
         }
 
-        .page.prev {
-            transform: translateX(-100%);
-        }
-
-        /* TYPOGRAPHY */
-        h1, h2 {
-            text-shadow: 3px 3px 12px rgba(0,0,0,0.3);
+        h1,
+        h2 {
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
@@ -70,7 +67,6 @@
             font-weight: 800;
             color: var(--pink);
             margin-bottom: 20px;
-            line-height: 1.2;
         }
 
         h2 {
@@ -83,35 +79,11 @@
         p {
             font-size: clamp(1.1rem, 5vw, 1.5rem);
             max-width: 90%;
+            margin: 0 auto 20px;
             line-height: 1.7;
-            font-weight: 500;
         }
 
-        /* BUTTON */
-        .next-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            padding: 16px 36px;
-            background: var(--purple);
-            color: white;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-size: clamp(1rem, 3.5vw, 1.4rem);
-            font-weight: 700;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: 0.3s ease;
-            z-index: 1000;
-        }
-        .next-btn:hover {
-            background: var(--pink);
-            transform: translateY(-6px);
-        }
-        .next-btn.hidden { display: none; }
-
-        /* BALLOONS */
+        /* Balloons */
         .balloon {
             position: absolute;
             bottom: -120px;
@@ -120,128 +92,166 @@
             border-radius: 50%;
             animation: float 7s infinite ease-in-out;
         }
-        .balloon:nth-child(1) { background: var(--pink); left: 10%; }
-        .balloon:nth-child(2) { background: var(--purple); left: 30%; animation-duration: 8s; }
-        .balloon:nth-child(3) { background: var(--light-pink); left: 50%; animation-duration: 6s; }
-        .balloon:nth-child(4) { background: #FF1493; left: 70%; animation-duration: 9s; }
-        .balloon:nth-child(5) { background: var(--lavender); left: 85%; animation-duration: 7s; }
 
         @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-130vh); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-130vh);
+            }
         }
 
-        /* CONFETTI */
-        .confetti {
-            position: absolute;
-            width: 10px; height: 10px;
-            animation: fall 4s linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100vh); opacity: 1; }
-            100% { transform: translateY(105vh); opacity: 0; }
-        }
-
-        /* GALLERY */
+        /* Gallery */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
-            width: 90%;
-            margin: 30px auto;
         }
 
         .photo {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             transition: 0.3s ease;
+            background: white;
         }
 
         .photo:hover {
             transform: scale(1.05);
         }
 
-        /* *** ADJUSTMENT FOR PHOTO WIDTH AND HEIGHT *** */
         .photo img {
-            width: 100%; /* Fills the width of the grid column */
-            height: auto; /* Height adjusts to maintain the image's aspect ratio */
-            object-fit: contain; /* ensures the whole image is visible (Optional: You can use 'cover' if you want it to fill and crop, but 'contain' is better if you want the full image to show.) */
+            width: 100%;
+            cursor: pointer;
         }
-        /* ******************************************* */
-
 
         .caption {
             padding: 12px;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             font-weight: 700;
             color: var(--purple);
         }
 
-        /* VIDEOS */
+        /* Videos */
         .videos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            width: 90%;
-            margin: 20px auto;
         }
 
         video {
             width: 100%;
             border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
-        /* LAST PAGE NOTE */
+        /* Note */
         .note-card {
             background: white;
             padding: 40px;
             max-width: 90%;
+            margin: 0 auto;
             border-radius: 35px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             border: 6px solid var(--pink);
             animation: bounce 3s infinite ease-in-out;
+            text-align: left;
         }
 
         @keyframes bounce {
-            50% { transform: translateY(-10px); }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Next Button */
+        .next-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 28px;
+            background: var(--purple);
+            color: white;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+
+        .next-btn:hover {
+            background: var(--pink);
+        }
+
+
+        /* POPUP LIGHTBOX */
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            display: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
         }
     </style>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-
     <div class="container">
 
+        <!-- Page 1 -->
         <div class="page active" id="page1">
             <h1>Happy Birthday Rajput Supriya Kumari Brijesh Singh! 🎉💖</h1>
             <p>Wishing you a magical day full of joy, love & surprises!</p>
 
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
+            <div class="balloon" style="background: var(--pink); left: 10%;"></div>
+            <div class="balloon" style="background: var(--purple); left: 30%; animation-duration: 8s;"></div>
+            <div class="balloon" style="background: var(--light-pink); left: 50%; animation-duration: 6s;"></div>
+            <div class="balloon" style="background: #FF1493; left: 70%; animation-duration: 9s;"></div>
+            <div class="balloon" style="background: var(--lavender); left: 85%; animation-duration: 7s;"></div>
         </div>
 
+        <!-- Page 2 -->
         <div class="page" id="page2">
             <h2>Our Beautiful Memories 💕</h2>
-
             <div class="gallery">
                 <div class="photo">
                     <img src="assets/WhatsApp Image 2025-10-23 at 00.36.04_db2559cb.jpg" alt="">
                     <div class="caption">You make every moment special 🌸</div>
                 </div>
-
                 <div class="photo">
                     <img src="assets/WhatsApp Image 2025-11-17 at 23.37.20_274edf48.jpg" alt="">
                     <div class="caption">Best friend forever 💜</div>
                 </div>
-
                 <div class="photo">
                     <img src="assets/WhatsApp Image 2025-11-17 at 23.37.20_f05550f2.jpg" alt="">
                     <div class="caption">Keep shining ✨</div>
@@ -249,80 +259,112 @@
             </div>
         </div>
 
+        <!-- Page 3 -->
         <div class="page" id="page3">
             <h2>Special Videos Just For You 🎥</h2>
-
             <div class="videos">
-                <video controls>
+                <video>
                     <source src="assets/WhatsApp Video 2025-11-17 at 23.55.31_710202c9.mp4" type="video/mp4">
                 </video>
-
-                <video controls>
+                <video>
                     <source src="assets/WhatsApp Video 2025-11-17 at 23.56.39_9e887706.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
 
+        <!-- Page 4 -->
         <div class="page" id="page4">
             <div class="note-card">
                 <h2>Dear Sirr 💖</h2>
                 <p>
                     On your special day, I just want to say...
-                    You are truly one of a kind. 
-                    Your kindness, your smile, your energy — 
-                    everything about you makes the world brighter. 
-                    I wish you endless happiness this year and always. 💫
+                    You are truly one of a kind. Happy Birthday! 🎉  
+                    Wishing you a day full of laughter, love, and surprises. 💕  
+                    Your kindness, smile & energy make the world brighter.  
                 </p>
-                <p><strong>With all my love, 
-                One and Only Me 💕</strong></p>
+                <p><strong>With all my love, One and Only Me 💕</strong></p>
             </div>
         </div>
+
+        <!-- Next Button -->
+        <button class="next-btn" id="nextBtn">Let's Begin 🎂</button>
+
     </div>
 
-    <button class="next-btn" id="nextBtn">Next →</button>
+
+    <!-- POPUP LIGHTBOX -->
+    <div id="popup" class="popup">
+        <span class="close-btn">&times;</span>
+        <img id="popupImg" class="popup-content">
+        <video id="popupVideo" class="popup-content" controls></video>
+    </div>
+
 
     <script>
-        let currentPage = 1;
-        const totalPages = 4;
+        const pages = document.querySelectorAll('.page');
+        const btn = document.getElementById('nextBtn');
+        let current = 0;
 
-        function goToPage(n) {
-            if (n > totalPages) return;
-            currentPage = n;
-
-            document.querySelectorAll('.page').forEach((page, i) => {
-                page.classList.remove('active', 'prev');
-                if (i + 1 === n) page.classList.add('active');
-                else if (i + 1 < n) page.classList.add('prev');
-            });
-
-            const btn = document.getElementById('nextBtn');
-            btn.classList.remove('hidden');
-            if (n === 1) btn.textContent = "Let's Begin 🎂";
-            if (n === 2) btn.textContent = "Next Surprise →";
-            if (n === 3) btn.textContent = "Final Surprise 💌";
-            if (n === 4) btn.classList.add('hidden');
+        function showPage(index) {
+            pages.forEach((p, i) => p.classList.toggle('active', i === index));
         }
 
-        // Button click
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            goToPage(currentPage + 1);
+        btn.addEventListener('click', () => {
+            current++;
+            if (current >= pages.length) {
+                btn.style.display = 'none';
+                current = pages.length - 1;
+            } else {
+                showPage(current);
+                if (current === 1) btn.textContent = "Next Surprise →";
+                // else if (current === 2) btn.textContent = "Final Surprise 💌";
+            }
         });
 
-        // CONFETTI ON FIRST PAGE
-        for (let i = 0; i < 80; i++) {
-            let c = document.createElement('div');
-            c.classList.add('confetti');
-            c.style.left = Math.random() * 100 + "vw";
-            c.style.background = i % 2 === 0 ? "var(--pink)" : "var(--purple)";
-            c.style.animationDelay = Math.random() * 5 + "s";
-            c.style.animationDuration = 3 + Math.random() * 3 + "s";
-            document.getElementById("page1").appendChild(c);
-        }
+        showPage(0);
 
-        // Initialize the first button text
-        document.addEventListener('DOMContentLoaded', () => {
-            goToPage(1);
+
+        /* ---------------- POPUP JS ---------------- */
+
+        const popup = document.getElementById('popup');
+        const popupImg = document.getElementById('popupImg');
+        const popupVideo = document.getElementById('popupVideo');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Open image popup
+        document.querySelectorAll('.photo img').forEach(img => {
+            img.addEventListener('click', () => {
+                popup.style.display = "flex";
+                popupImg.src = img.src;
+                popupImg.style.display = "block";
+                popupVideo.style.display = "none";
+            });
+        });
+
+        // Open video popup
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('click', () => {
+                popup.style.display = "flex";
+                popupVideo.src = video.querySelector('source').src;
+                popupVideo.style.display = "block";
+                popupImg.style.display = "none";
+            });
+        });
+
+        // Close popup
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = "none";
+            popupVideo.pause();
+        });
+
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+                popupVideo.pause();
+            }
         });
     </script>
+
 </body>
+
 </html>
